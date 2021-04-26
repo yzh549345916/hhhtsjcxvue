@@ -68,8 +68,8 @@ export default {
       loginForm: {
         username: '',
         password: '',
-        expiresTime: new Date(Date.now() + 24 * 60 * 60 * 1000).getTime()
-
+        expiresTime: new Date(Date.now() + 24 * 60 * 60 * 1000).getTime(),
+        adminCode:''
       },
       responseResult: []
     }
@@ -89,6 +89,7 @@ export default {
           })
           .then(successResponse => {
             if (successResponse.data.code === 200) {
+              _this.loginForm.adminCode= successResponse.data.adminCode
               _this.$store.commit('login', _this.loginForm)
               this.mytip = "登录成功";
               this.alerttype = "success";

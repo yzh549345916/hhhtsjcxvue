@@ -173,6 +173,7 @@ router.beforeEach((to, from, next) => {
                 next()
             } else {
                 store.state.user.username = ''
+                store.state.user.adminCode = ''
                 store.state.user.expiresTime = 0
                 next({
                     path: 'login',

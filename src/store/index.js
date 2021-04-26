@@ -7,6 +7,7 @@ export default new Vuex.Store({
         MsgRight:[],
         user: {
             username: window.localStorage.getItem('user' || '[]') == null ? '' : JSON.parse(window.localStorage.getItem('user' || '[]')).username,
+            adminCode:window.localStorage.getItem('user' || '[]') == null ? '' : JSON.parse(window.localStorage.getItem('user' || '[]')).adminCode,
             expiresTime:window.localStorage.getItem('user' || '[]') == null ? new Date(100, 0, 1).getTime() : JSON.parse(window.localStorage.getItem('user' || '[]')).expiresTime
         }
     },
