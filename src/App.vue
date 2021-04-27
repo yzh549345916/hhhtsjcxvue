@@ -4,7 +4,7 @@
 
       <router-view></router-view>
     </v-main>
-    <v-footer absolute>
+    <v-footer>
       <v-row align="center" justify="center"> Copyright © 2021 杨泽华.All Rights Reserved.</v-row>
     </v-footer>
   </v-app>

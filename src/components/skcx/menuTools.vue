@@ -1,98 +1,100 @@
 <template>
   <v-hover id="maptool" open-delay="200" close-delay="1000" v-slot:default="{ hover }">
-    <v-btn fab color="primary" small elevation=20 v-if="!hover">
-      <v-icon class>mdi-toolbox</v-icon>
-    </v-btn>
-    <v-fab-transition>
-      <div style="min-width: 200px;" v-if="hover">
-        <v-toolbar
+   <div>
+     <v-btn fab color="primary" small elevation=20 v-if="!hover">
+       <v-icon class>mdi-toolbox</v-icon>
+     </v-btn>
+     <v-fab-transition>
+       <div style="min-width: 200px;" v-if="hover">
+         <v-toolbar
 
-        >
-          <template v-slot:extension>
-            <v-tabs
-                v-model="tcmodel"
-                center-active
-                fixed-tabs
-                slider-color="primary"
-            >
-              <v-tab
-                  v-for="item in titleItem"
-                  :key="item.tab"
-              >
-                {{ item.tab }}
-              </v-tab>
-            </v-tabs>
-          </template>
-        </v-toolbar>
-        <v-tabs-items style="max-height: 400px" class="overflow-y-auto" v-model="tcmodel">
-          <v-tab-item
-          >
-            <v-card >
-              <v-sheet>
-                <v-list>
-                  <v-list-group
-                      v-for="item in gDitems"
-                      :key="item.title"
-                      v-model="item.active"
-                      :prepend-icon="item.action"
-                      @click="myclisck"
-                  >
-                    <template v-slot:activator>
-                      <v-list-item-content>
-                        <v-list-item-title v-text="item.title"></v-list-item-title>
-                      </v-list-item-content>
-                    </template>
-                    <v-list-item-group v-model="gdSelectItem" color="primary">
-                      <v-list-item
-                          v-for="subItem in item.items"
-                          :key="subItem.title"
-                      >
-                        <v-list-item-content>
-                          <v-list-item-title v-text="subItem.title"></v-list-item-title>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list-item-group>
-                  </v-list-group>
-                </v-list>
+         >
+           <template v-slot:extension>
+             <v-tabs
+                 v-model="tcmodel"
+                 center-active
+                 fixed-tabs
+                 slider-color="primary"
+             >
+               <v-tab
+                   v-for="item in titleItem"
+                   :key="item.tab"
+               >
+                 {{ item.tab }}
+               </v-tab>
+             </v-tabs>
+           </template>
+         </v-toolbar>
+         <v-tabs-items style="max-height: 400px" class="overflow-y-auto" v-model="tcmodel">
+           <v-tab-item
+           >
+             <v-card >
+               <v-sheet>
+                 <v-list>
+                   <v-list-group
+                       v-for="item in gDitems"
+                       :key="item.title"
+                       v-model="item.active"
+                       :prepend-icon="item.action"
+                       @click="myclisck"
+                   >
+                     <template v-slot:activator>
+                       <v-list-item-content>
+                         <v-list-item-title v-text="item.title"></v-list-item-title>
+                       </v-list-item-content>
+                     </template>
+                     <v-list-item-group v-model="gdSelectItem" color="primary">
+                       <v-list-item
+                           v-for="subItem in item.items"
+                           :key="subItem.title"
+                       >
+                         <v-list-item-content>
+                           <v-list-item-title v-text="subItem.title"></v-list-item-title>
+                         </v-list-item-content>
+                       </v-list-item>
+                     </v-list-item-group>
+                   </v-list-group>
+                 </v-list>
 
-              </v-sheet>
-            </v-card>
-          </v-tab-item>
-          <v-tab-item
-          >
-            <v-sheet flat>
-              <v-card>
-                <v-list>
-                  <v-list-group
-                      v-for="item in zDitems"
-                      :key="item.title"
-                      v-model="item.active"
-                      :prepend-icon="item.action"
-                      @click="myzdclisck"
-                  >
-                    <template v-slot:activator>
-                      <v-list-item-content>
-                        <v-list-item-title v-text="item.title"></v-list-item-title>
-                      </v-list-item-content>
-                    </template>
-                    <v-list-item-group v-model="zdSelectItem" color="primary">
-                      <v-list-item
-                          v-for="subItem in item.items"
-                          :key="subItem.title"
-                      >
-                        <v-list-item-content>
-                          <v-list-item-title v-text="subItem.title"></v-list-item-title>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list-item-group>
-                  </v-list-group>
-                </v-list>
-              </v-card>
-            </v-sheet>
-          </v-tab-item>
-        </v-tabs-items>
-      </div>
-    </v-fab-transition>
+               </v-sheet>
+             </v-card>
+           </v-tab-item>
+           <v-tab-item
+           >
+             <v-sheet flat>
+               <v-card>
+                 <v-list>
+                   <v-list-group
+                       v-for="item in zDitems"
+                       :key="item.title"
+                       v-model="item.active"
+                       :prepend-icon="item.action"
+                       @click="myzdclisck"
+                   >
+                     <template v-slot:activator>
+                       <v-list-item-content>
+                         <v-list-item-title v-text="item.title"></v-list-item-title>
+                       </v-list-item-content>
+                     </template>
+                     <v-list-item-group v-model="zdSelectItem" color="primary">
+                       <v-list-item
+                           v-for="subItem in item.items"
+                           :key="subItem.title"
+                       >
+                         <v-list-item-content>
+                           <v-list-item-title v-text="subItem.title"></v-list-item-title>
+                         </v-list-item-content>
+                       </v-list-item>
+                     </v-list-item-group>
+                   </v-list-group>
+                 </v-list>
+               </v-card>
+             </v-sheet>
+           </v-tab-item>
+         </v-tabs-items>
+       </div>
+     </v-fab-transition>
+   </div>
   </v-hover>
 </template>
 
@@ -204,7 +206,7 @@ export default {
 #maptool {
   position: absolute;
   max-width: 25%;
-  top: 1em;
+  top: 15%;
   left: 5em;
   z-index: 6;
 }
